@@ -1,0 +1,14 @@
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\bin\Debug\net8.0\EncryptionDecryptionCryptography.exe
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\bin\Debug\net8.0\EncryptionDecryptionCryptography.deps.json
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\bin\Debug\net8.0\EncryptionDecryptionCryptography.runtimeconfig.json
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\bin\Debug\net8.0\EncryptionDecryptionCryptography.dll
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\bin\Debug\net8.0\EncryptionDecryptionCryptography.pdb
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\EncryptionDecryptionCryptography.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\EncryptionDecryptionCryptography.AssemblyInfoInputs.cache
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\EncryptionDecryptionCryptography.AssemblyInfo.cs
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\EncryptionDecryptionCryptography.csproj.CoreCompileInputs.cache
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\EncryptionDecryptionCryptography.dll
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\refint\EncryptionDecryptionCryptography.dll
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\EncryptionDecryptionCryptography.pdb
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\EncryptionDecryptionCryptography.genruntimeconfig.cache
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\ref\EncryptionDecryptionCryptography.dll

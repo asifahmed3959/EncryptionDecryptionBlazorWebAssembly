@@ -1,0 +1,666 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Encryption Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+            /* Animated background particles */
+            body::before {
+                content: '';
+                position: absolute;
+                width: 200%;
+                height: 200%;
+                background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+                background-size: 50px 50px;
+                animation: drift 20s linear infinite;
+                z-index: 0;
+            }
+
+        @keyframes drift {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+            padding: 50px;
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .input-group {
+            margin-bottom: 28px;
+            animation: fadeIn 0.6s ease-out backwards;
+        }
+
+            .input-group:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+
+            .input-group:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .input-group:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+            label::before {
+                content: '';
+                display: inline-block;
+                width: 4px;
+                height: 16px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 2px;
+                margin-right: 10px;
+            }
+
+        textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            resize: vertical;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+            textarea:focus {
+                outline: none;
+                border-color: #667eea;
+                box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+                transform: translateY(-2px);
+            }
+
+            textarea.json-input {
+                min-height: 140px;
+            }
+
+            textarea.key-input {
+                min-height: 180px;
+            }
+
+            textarea.output {
+                min-height: 120px;
+                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                font-weight: 500;
+                color: #495057;
+            }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+            button::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.2);
+                transform: translate(-50%, -50%);
+                transition: width 0.6s, height 0.6s;
+            }
+
+            button:hover::before {
+                width: 300px;
+                height: 300px;
+            }
+
+            button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+            }
+
+            button:active {
+                transform: translateY(-1px);
+            }
+
+            button:disabled {
+                background: linear-gradient(135deg, #ccc 0%, #999 100%);
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
+            }
+
+            button.secondary {
+                background: white;
+                color: #667eea;
+                border: 2px solid #667eea;
+            }
+
+                button.secondary:hover {
+                    background: #f8f9fa;
+                }
+
+        .output-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #e0e0e0;
+            animation: fadeIn 0.6s ease-out 0.4s backwards;
+        }
+
+        .alert {
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            animation: slideDown 0.4s ease-out;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert.error {
+            background: #fee;
+            color: #c33;
+            border: 2px solid #fcc;
+        }
+
+        .alert.success {
+            background: #efe;
+            color: #3c3;
+            border: 2px solid #cfc;
+        }
+
+        .alert::before {
+            font-size: 20px;
+        }
+
+        .alert.error::before {
+            content: '⚠️';
+        }
+
+        .alert.success::before {
+            content: '✅';
+        }
+
+        .copy-notification {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+            z-index: 1000;
+            animation: slideInRight 0.4s ease-out, fadeOut 0.4s ease-out 2.6s forwards;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+        }
+
+        .loader {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .example-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #667eea;
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+            .example-link:hover {
+                color: #764ba2;
+                text-decoration: underline;
+            }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .copy-notification {
+                right: 20px;
+                left: 20px;
+                top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">🔐</div>
+            <h1>RSA Encryption Tool</h1>
+            <p class="subtitle">Encrypt your JSON data with RSA-OAEP-256 encryption</p>
+        </div>
+
+        <div class="input-group">
+            <label for="jsonInput">JSON Data</label>
+            <textarea id="jsonInput"
+                      class="json-input"
+                      placeholder='{"key": "value", "message": "your data here"}'></textarea>
+            <a href="#" class="example-link" onclick="fillExampleJSON(event)">Load example JSON</a>
+        </div>
+
+        <div class="input-group">
+            <label for="publicKey">RSA Public Key (XML Format)</label>
+            <textarea id="publicKey"
+                      class="key-input"
+                      placeholder="<RSAKeyValue><Modulus>...</Modulus><Exponent>...</Exponent></RSAKeyValue>"></textarea>
+            <a href="#" class="example-link" onclick="fillExampleKey(event)">Load example key</a>
+        </div>
+
+        <div class="button-group">
+            <button onclick="encryptData()" id="encryptBtn">
+                <span>🔒 Encrypt Data</span>
+            </button>
+            <button class="secondary" onclick="clearAll()">
+                <span>🗑️ Clear All</span>
+            </button>
+        </div>
+
+        <div class="output-section" id="outputSection" style="display: none;">
+            <div class="input-group">
+                <label for="encryptedOutput">Encrypted Payload (Base64)</label>
+                <textarea id="encryptedOutput"
+                          class="output"
+                          readonly></textarea>
+            </div>
+            <button onclick="copyToClipboard()">
+                <span>📋 Copy to Clipboard</span>
+            </button>
+        </div>
+    </div>
+
+    <script>// RSA Encryption Function
+        window.encryptWithWebCryptoApi = async function (JSONObjectString, publicKeyxml) {
+            try {
+                const jwkConfig = convertXmlToJwk(publicKeyxml);
+
+                // for importing the key
+                async function importPublicKey() {
+                    return await window.crypto.subtle.importKey(
+                        "jwk",
+                        jwkConfig,
+                        {
+                            name: "RSA-OAEP",
+                            hash: "SHA-256",
+                        },
+                        true,
+                        ["encrypt"]
+                    );
+                }
+
+                //for encrypting
+                async function encryptRSA(key, plaintext) {
+                    let encrypted = await window.crypto.subtle.encrypt(
+                        {
+                            name: "RSA-OAEP",
+                        },
+                        key,
+                        plaintext
+                    );
+                    return encrypted;
+                }
+
+                function ab2str(buf) {
+                    return String.fromCharCode.apply(null, new Uint8Array(buf));
+                }
+
+                //function to convert RSAkey in XML format to JWK
+                function convertXmlToJwk(xmlString) {
+                    var parser = new DOMParser();
+                    var xmlDoc = parser.parseFromString(xmlString, "text/xml");
+                    var modulusBase64 = xmlDoc.querySelector("Modulus").textContent;
+                    var exponentBase64 = xmlDoc.querySelector("Exponent").textContent;
+                    var modulus = base64UrlDecode(modulusBase64);
+                    var exponent = base64UrlDecode(exponentBase64);
+                    var jwk = {
+                        alg: "RSA-OAEP-256",
+                        kty: "RSA",
+                        n: arrayBufferToBase64Url(modulus),
+                        e: arrayBufferToBase64Url(exponent),
+                        use: "enc"
+                    };
+                    return jwk;
+                }
+
+                function base64UrlDecode(base64Url) {
+                    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+                    var binaryString = window.atob(base64);
+                    var bytes = new Uint8Array(binaryString.length);
+                    for (var i = 0; i < binaryString.length; i++) {
+                        bytes[i] = binaryString.charCodeAt(i);
+                    }
+                    return bytes;
+                }
+
+                function arrayBufferToBase64Url(arrayBuffer) {
+                    var binary = "";
+                    var bytes = new Uint8Array(arrayBuffer);
+                    for (var i = 0; i < bytes.byteLength; i++) {
+                        binary += String.fromCharCode(bytes[i]);
+                    }
+                    return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+                }
+
+                const pub = await importPublicKey();
+                const encoder = new TextEncoder();
+                const encodedString = encoder.encode(JSONObjectString);
+                const encrypted = await encryptRSA(pub, encodedString);
+                const encryptedBase64 = window.btoa(ab2str(encrypted));
+                return encryptedBase64;
+
+            } catch (error) {
+                throw error;
+            }
+        }
+
+        // UI Functions
+        function showAlert(message, type) {
+            const existingAlert = document.querySelector('.alert');
+            if (existingAlert) {
+                existingAlert.remove();
+            }
+
+            const alert = document.createElement('div');
+            alert.className = `alert ${type}`;
+            alert.textContent = message;
+
+            const container = document.querySelector('.container');
+            container.insertBefore(alert, container.firstChild);
+
+            setTimeout(() => {
+                alert.style.animation = 'fadeOut 0.4s ease-out forwards';
+                setTimeout(() => alert.remove(), 400);
+            }, 5000);
+        }
+
+        async function encryptData() {
+            const jsonInput = document.getElementById('jsonInput').value.trim();
+            const publicKey = document.getElementById('publicKey').value.trim();
+            const encryptBtn = document.getElementById('encryptBtn');
+            const outputSection = document.getElementById('outputSection');
+            const encryptedOutput = document.getElementById('encryptedOutput');
+
+            // Validation
+            if (!jsonInput) {
+                showAlert('Please enter JSON data to encrypt', 'error');
+                return;
+            }
+
+            if (!publicKey) {
+                showAlert('Please enter a public key', 'error');
+                return;
+            }
+
+            // Validate JSON
+            try {
+                JSON.parse(jsonInput);
+            } catch (e) {
+                showAlert('Invalid JSON format. Please check your input.', 'error');
+                return;
+            }
+
+            // Validate XML key format
+            if (!publicKey.includes('<Modulus>') || !publicKey.includes('<Exponent>')) {
+                showAlert('Invalid RSA key format. Expected XML format with Modulus and Exponent.', 'error');
+                return;
+            }
+
+            // Show loading state
+            encryptBtn.disabled = true;
+            encryptBtn.innerHTML = '<span class="loader"></span><span>Encrypting...</span>';
+
+            try {
+                const encrypted = await window.encryptWithWebCryptoApi(jsonInput, publicKey);
+
+                if (encrypted) {
+                    encryptedOutput.value = encrypted;
+                    outputSection.style.display = 'block';
+                    showAlert('Encryption successful!', 'success');
+
+                    // Smooth scroll to output
+                    setTimeout(() => {
+                        outputSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 100);
+                } else {
+                    throw new Error('Encryption returned empty result');
+                }
+            } catch (error) {
+                console.error('Encryption error:', error);
+                showAlert('Encryption failed: ' + error.message, 'error');
+                outputSection.style.display = 'none';
+            } finally {
+                encryptBtn.disabled = false;
+                encryptBtn.innerHTML = '<span>🔒 Encrypt Data</span>';
+            }
+        }
+
+        function copyToClipboard() {
+            const output = document.getElementById('encryptedOutput');
+            output.select();
+            document.execCommand('copy');
+
+            // Show notification
+            const notification = document.createElement('div');
+            notification.className = 'copy-notification';
+            notification.textContent = '✓ Copied to clipboard!';
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        function clearAll() {
+            document.getElementById('jsonInput').value = '';
+            document.getElementById('publicKey').value = '';
+            document.getElementById('encryptedOutput').value = '';
+            document.getElementById('outputSection').style.display = 'none';
+
+            const existingAlert = document.querySelector('.alert');
+            if (existingAlert) {
+                existingAlert.remove();
+            }
+        }
+
+        function fillExampleJSON(event) {
+            event.preventDefault();
+            const exampleJSON = {
+                "userId": "12345",
+                "action": "purchase",
+                "items": ["item1", "item2"],
+                "timestamp": new Date().toISOString()
+            };
+            document.getElementById('jsonInput').value = JSON.stringify(exampleJSON, null, 2);
+        }
+
+        function fillExampleKey(event) {
+            event.preventDefault();
+            const exampleKey = `<RSAKeyValue>
+  <Modulus>your-modulus-here</Modulus>
+  <Exponent>AQAB</Exponent>
+</RSAKeyValue>`;
+            document.getElementById('publicKey').value = exampleKey;
+            showAlert('Example key loaded. Replace with your actual RSA public key.', 'success');
+        }
+
+        // Allow Enter key in textareas but trigger encrypt with Ctrl+Enter
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                encryptData();
+            }
+        });</script>
+</body>
+</html>
