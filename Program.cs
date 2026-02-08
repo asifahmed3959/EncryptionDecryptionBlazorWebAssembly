@@ -78,7 +78,7 @@ namespace CrossLanguageRSA
         /// </summary>
         public static (string publicKey, string privateKey) GenerateRSAKeyPair()
         {
-            using (RSA rsa = RSA.Create(2048))
+            using (RSA rsa = RSA.Create(4096)) // 2048 bits
             {
                 string publicKey = rsa.ToXmlString(false);   // Public key only
                 string privateKey = rsa.ToXmlString(true);    // Private key (includes public)

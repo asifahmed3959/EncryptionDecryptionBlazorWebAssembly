@@ -12,3 +12,4 @@ C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptio
 C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\EncryptionDecryptionCryptography.pdb
 C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\EncryptionDecryptionCryptography.genruntimeconfig.cache
 C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\ref\EncryptionDecryptionCryptography.dll
+C:\Users\blood\source\repos\EncryptionDecryptionCryptography\EncryptionDecryptionCryptography\obj\Debug\net8.0\EncryptionDecryptionCryptography.sourcelink.json
