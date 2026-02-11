@@ -1,0 +1,15 @@
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/bin/Debug/net9.0/EncryptionDecryptionCryptography
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/bin/Debug/net9.0/EncryptionDecryptionCryptography.deps.json
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/bin/Debug/net9.0/EncryptionDecryptionCryptography.runtimeconfig.json
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/bin/Debug/net9.0/EncryptionDecryptionCryptography.dll
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/bin/Debug/net9.0/EncryptionDecryptionCryptography.pdb
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/obj/Debug/net9.0/EncryptionDecryptionCryptography.GeneratedMSBuildEditorConfig.editorconfig
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/obj/Debug/net9.0/EncryptionDecryptionCryptography.AssemblyInfoInputs.cache
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/obj/Debug/net9.0/EncryptionDecryptionCryptography.AssemblyInfo.cs
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/obj/Debug/net9.0/EncryptionDecryptionCryptography.csproj.CoreCompileInputs.cache
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/obj/Debug/net9.0/EncryptionDecryptionCryptography.sourcelink.json
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/obj/Debug/net9.0/EncryptionDecryptionCryptography.dll
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/obj/Debug/net9.0/refint/EncryptionDecryptionCryptography.dll
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/obj/Debug/net9.0/EncryptionDecryptionCryptography.pdb
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/obj/Debug/net9.0/EncryptionDecryptionCryptography.genruntimeconfig.cache
+/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/obj/Debug/net9.0/ref/EncryptionDecryptionCryptography.dll

@@ -443,88 +443,61 @@
     </div>
 
     <script>// RSA Encryption Function
-        window.encryptWithWebCryptoApi = async function (JSONObjectString, publicKeyxml) {
-            try {
-                const jwkConfig = convertXmlToJwk(publicKeyxml);
-
-                // for importing the key
-                async function importPublicKey() {
-                    return await window.crypto.subtle.importKey(
-                        "jwk",
-                        jwkConfig,
-                        {
-                            name: "RSA-OAEP",
-                            hash: "SHA-256",
-                        },
-                        true,
-                        ["encrypt"]
-                    );
-                }
-
-                //for encrypting
-                async function encryptRSA(key, plaintext) {
-                    let encrypted = await window.crypto.subtle.encrypt(
-                        {
-                            name: "RSA-OAEP",
-                        },
-                        key,
-                        plaintext
-                    );
-                    return encrypted;
-                }
-
-                function ab2str(buf) {
-                    return String.fromCharCode.apply(null, new Uint8Array(buf));
-                }
-
-                //function to convert RSAkey in XML format to JWK
-                function convertXmlToJwk(xmlString) {
-                    var parser = new DOMParser();
-                    var xmlDoc = parser.parseFromString(xmlString, "text/xml");
-                    var modulusBase64 = xmlDoc.querySelector("Modulus").textContent;
-                    var exponentBase64 = xmlDoc.querySelector("Exponent").textContent;
-                    var modulus = base64UrlDecode(modulusBase64);
-                    var exponent = base64UrlDecode(exponentBase64);
-                    var jwk = {
-                        alg: "RSA-OAEP-256",
-                        kty: "RSA",
-                        n: arrayBufferToBase64Url(modulus),
-                        e: arrayBufferToBase64Url(exponent),
-                        use: "enc"
-                    };
-                    return jwk;
-                }
-
-                function base64UrlDecode(base64Url) {
-                    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-                    var binaryString = window.atob(base64);
-                    var bytes = new Uint8Array(binaryString.length);
-                    for (var i = 0; i < binaryString.length; i++) {
-                        bytes[i] = binaryString.charCodeAt(i);
-                    }
-                    return bytes;
-                }
-
-                function arrayBufferToBase64Url(arrayBuffer) {
-                    var binary = "";
-                    var bytes = new Uint8Array(arrayBuffer);
-                    for (var i = 0; i < bytes.byteLength; i++) {
-                        binary += String.fromCharCode(bytes[i]);
-                    }
-                    return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-                }
-
-                const pub = await importPublicKey();
-                const encoder = new TextEncoder();
-                const encodedString = encoder.encode(JSONObjectString);
-                const encrypted = await encryptRSA(pub, encodedString);
-                const encryptedBase64 = window.btoa(ab2str(encrypted));
-                return encryptedBase64;
-
-            } catch (error) {
-                throw error;
+            window.encryptWithWebCryptoApi = async function (JSONObjectString, publicKeyxml) {
+            // Convert XML RSA key to JWK format
+            function convertXmlToJwk(xmlString) {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+                const modulusBase64 = xmlDoc.querySelector("Modulus").textContent;
+                const exponentBase64 = xmlDoc.querySelector("Exponent").textContent;
+                
+                return {
+                    kty: "RSA",
+                    n: base64ToBase64Url(modulusBase64),
+                    e: base64ToBase64Url(exponentBase64)
+                };
             }
-        }
+            
+            // Convert standard Base64 to Base64URL format
+            function base64ToBase64Url(base64) {
+                return base64
+                    .replace(/\+/g, '-')
+                    .replace(/\//g, '_')
+                    .replace(/=/g, '');
+            }
+            
+            // Convert ArrayBuffer directly to Base64
+            function arrayBufferToBase64(buffer) {
+                const bytes = new Uint8Array(buffer);
+                let binary = '';
+                for (let i = 0; i < bytes.length; i++) {
+                    binary += String.fromCharCode(bytes[i]);
+                }
+                return window.btoa(binary);
+            }
+            
+            // Import public key
+            const jwkConfig = convertXmlToJwk(publicKeyxml);
+            const publicKey = await window.crypto.subtle.importKey(
+                "jwk",
+                jwkConfig,
+                { name: "RSA-OAEP", hash: "SHA-256" },
+                true,
+                ["encrypt"]
+            );
+            
+            // Encrypt the data
+            const encoder = new TextEncoder();
+            const encodedString = encoder.encode(JSONObjectString);
+            const encrypted = await window.crypto.subtle.encrypt(
+                { name: "RSA-OAEP" },
+                publicKey,
+                encodedString
+            );
+            
+            // Return as Base64
+            return arrayBufferToBase64(encrypted);
+        };
 
         // UI Functions
         function showAlert(message, type) {
