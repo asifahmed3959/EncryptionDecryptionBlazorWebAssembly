@@ -1,0 +1,96 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ED82BEC8-4883-3839-323C-20C316CB8E44}|EncryptionDecryptionCryptography.csproj|c:\\users\\blood\\source\\repos\\encryptiondecryptioncryptography\\encryptiondecryptioncryptography\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED82BEC8-4883-3839-323C-20C316CB8E44}|EncryptionDecryptionCryptography.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED82BEC8-4883-3839-323C-20C316CB8E44}|EncryptionDecryptionCryptography.csproj|c:\\users\\blood\\source\\repos\\encryptiondecryptioncryptography\\encryptiondecryptioncryptography\\private_key.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{ED82BEC8-4883-3839-323C-20C316CB8E44}|EncryptionDecryptionCryptography.csproj|solutionrelative:private_key.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED82BEC8-4883-3839-323C-20C316CB8E44}|EncryptionDecryptionCryptography.csproj|c:\\users\\blood\\source\\repos\\encryptiondecryptioncryptography\\encryptiondecryptioncryptography\\public_key.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{ED82BEC8-4883-3839-323C-20C316CB8E44}|EncryptionDecryptionCryptography.csproj|solutionrelative:public_key.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED82BEC8-4883-3839-323C-20C316CB8E44}|EncryptionDecryptionCryptography.csproj|c:\\users\\blood\\source\\repos\\encryptiondecryptioncryptography\\encryptiondecryptioncryptography\\encryptiontool.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ED82BEC8-4883-3839-323C-20C316CB8E44}|EncryptionDecryptionCryptography.csproj|solutionrelative:encryptiontool.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "private_key.xml",
+              "DocumentMoniker": "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\private_key.xml",
+              "RelativeDocumentMoniker": "private_key.xml",
+              "ToolTip": "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\private_key.xml",
+              "RelativeToolTip": "private_key.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-02-12T22:49:56.956Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "public_key.xml",
+              "DocumentMoniker": "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\public_key.xml",
+              "RelativeDocumentMoniker": "public_key.xml",
+              "ToolTip": "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\public_key.xml",
+              "RelativeToolTip": "public_key.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-02-12T22:49:53.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAgwGoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T22:49:16.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EncryptionTool.html",
+              "DocumentMoniker": "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\EncryptionTool.html",
+              "RelativeDocumentMoniker": "EncryptionTool.html",
+              "ToolTip": "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\EncryptionTool.html",
+              "RelativeToolTip": "EncryptionTool.html",
+              "ViewState": "AgIAAK0BAAAAAAAAAAAAAPIBAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-02-12T22:47:18.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

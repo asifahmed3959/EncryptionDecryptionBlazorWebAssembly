@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/EncryptionDecryptionCryptography.csproj": {}
+    "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography.csproj": {}
   },
   "projects": {
-    "/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/EncryptionDecryptionCryptography.csproj": {
+    "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/EncryptionDecryptionCryptography.csproj",
+        "projectUniqueName": "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography.csproj",
         "projectName": "EncryptionDecryptionCryptography",
-        "projectPath": "/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/EncryptionDecryptionCryptography.csproj",
-        "packagesPath": "/Users/asifahmed/.nuget/packages/",
-        "outputPath": "/Users/asifahmed/Documents/repos/presentation/EncryptionDecryptionBlazorWebAssembly/obj/",
+        "projectPath": "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography.csproj",
+        "packagesPath": "C:\\Users\\blood\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\blood\\source\\repos\\EncryptionDecryptionCryptography\\EncryptionDecryptionCryptography\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/asifahmed/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\blood\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
